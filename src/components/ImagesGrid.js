@@ -1,9 +1,9 @@
-import Image from "./Image"
-const ImagesGrid = () => {
+const ImagesGrid = ({images}) => {
   return (
-    <div>
-        ImagesGrid
-        <Image/>
+    <div className="grid-container">
+       
+        {images.map((image)=>(
+          <img key ={image.id} src={image.webformatURL}/>))}
     </div>
     
   )

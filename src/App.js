@@ -8,11 +8,12 @@ function App() {
 
   const searchQuery =async (query)=>{
     console.log(query.text)
-    const res = await fetch(`https://pixabay.com/api/?key=${key}&$q=${query.text}&per-page=15`,{
+    const res = await fetch(`https://pixabay.com/api/?key=${key}&q=${query.text}`,{
       method:'GET'
     })
 
     const data = await res.json()
+    console.log(data)
     console.log(data.hits)
     await setImages(data.hits)
   }
@@ -21,7 +22,8 @@ function App() {
     <div className="App">
       <h2> Image Search Using Pixabay</h2>
       <SearchQuery onSearch={searchQuery}/>
-      <ImagesGrid/>
+      <br></br>
+      { images.length>0 && <ImagesGrid images={images}/>}
     </div>
   );
 }

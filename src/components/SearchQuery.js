@@ -8,7 +8,6 @@ const SearchQuery = ({onSearch}) => {
           alert ('please add Text')
           return
       }
-
       onSearch({text})
 
       setText('')
